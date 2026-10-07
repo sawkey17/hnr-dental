@@ -105,10 +105,9 @@ $riwayat = mysqli_query($conn, "SELECT * FROM konsultasi WHERE id_pasien = {$id_
   <nav class="max-w-6xl mx-auto flex items-center justify-between mb-8">
     <div class="text-white font-bold text-lg">HnR-Dental</div>
     <div class="flex gap-3">
-       <a href="../index.php" class="text-white/80">homei</a>
+       <a href="../index.php" class="text-white/80">home</a>
       <a href="konsultasi.php" class="text-white/80">Konsultasi</a>
       <a href="dashboard.php" class="text-white/80">dashboard</a>
-      <a href="logout.php" class="text-white/80">Logout</a>
     </div>
   </nav>
 

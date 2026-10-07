@@ -100,9 +100,7 @@ $konsultasi_selesai = $total_selesai;
       transition:transform 5s linear;
   }
 
-  #scoreBox{
-    z-index:9999;
-  }
+
 
   /* keep navbar highest */
   #navbar{
@@ -242,34 +240,33 @@ $konsultasi_selesai = $total_selesai;
 
 
 <!-- Doctors -->
-<section class="max-w-6xl mx-auto px-6 pb-16">
+<section class="max-w-7xl mx-auto px-8 pb-18">
   <h2 class="text-2xl font-semibold mb-6">Dokter Unggulan</h2>
-  <div class="grid md:grid-cols-3 gap-6">
-      <div class="glass p-5 rounded-xl flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-14 h-14 rounded-full">
-          <div><div class="font-bold">Dr. Ibrahimović</div><div class="text-xs text-white/70">Fisioterapis</div></div>
-      </div>
 
-      <div class="glass p-5 rounded-xl flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/men/33.jpg" class="w-14 h-14 rounded-full">
-          <div><div class="font-bold">Dr. Jonathan</div><div class="text-xs text-white/70">Kardiologis</div></div>
-      </div>
+  <div class="grid md:grid-cols-2 gap-6">
 
-      <div class="glass p-5 rounded-xl flex items-center gap-4">
-          <img src="https://randomuser.me/api/portraits/women/42.jpg" class="w-14 h-14 rounded-full">
-          <div><div class="font-bold">Dr. Aisyah</div><div class="text-xs text-white/70">Umum</div></div>
+    <div class="glass p-6 rounded-xl flex items-center gap-5">
+      <img src="assets/doknum.png" class="w-24 h-24 rounded-full object-cover">
+      <div>
+        <div class="font-bold text-xl">Drg. Rahmat R</div>
+        <div class="text-sm text-white/70 mt-1">Dentist</div>
       </div>
+    </div>
+
+    <div class="glass p-6 rounded-xl flex items-center gap-5">
+      <img src="assets/dokmat.png" class="w-24 h-24 rounded-full object-cover">
+      <div>
+        <div class="font-bold text-xl">Dr. Hanum L</div>
+        <div class="text-sm text-white/70 mt-1">Dentist</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <footer class="py-10 text-center text-white/60">
   © <?= date('Y') ?> HnR Dental
 </footer>
-
-<!-- Score -->
-<div id="scoreBox" class="fixed right-6 bottom-6 bg-white/10 px-4 py-2 rounded-lg">
-  Score: <span id="score">0</span>
-</div>
 
 <script>
 /* ---------------------------------------
@@ -308,7 +305,6 @@ typeLoop();
 /* ---------------------------------------
    BUBBLE GAME GIGI 🦷
 --------------------------------------- */
-let score = 0;
 
 function spawnBubble(){
   const b = document.createElement("div");
@@ -334,9 +330,6 @@ function spawnBubble(){
   const timeout = setTimeout(() => b.remove(), 5200);
 
   b.addEventListener("mousedown", () => {
-    score += 1 + Math.floor(Math.random() * 3);
-    document.getElementById("score").innerText = score;
-
     b.style.transition = "transform .25s, opacity .25s";
     b.style.transform = "scale(0.2)";
     b.style.opacity = "0";

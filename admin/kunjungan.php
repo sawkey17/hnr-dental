@@ -72,17 +72,23 @@ $query = mysqli_query($conn, "
             <td class="py-3 px-4"><?= $row['tanggal'] ?></td>
             <td class="py-3 px-4"><?= $row['jam'] ?></td>
             <td class="py-3 px-4"><?= $row['keluhan'] ?></td>
+
             <td class="py-3 px-4">
-              <span class="px-2 py-1 rounded text-sm 
-                <?= $row['status'] == 'Selesai' ? 'bg-green-100 text-green-700' : 
-                   ($row['status'] == 'Proses' ? 'bg-yellow-100 text-yellow-700' : 'bg-gray-100 text-gray-700') ?>">
-                <?= $row['status'] ?>
-              </span>
+                <span class="px-2 py-1 rounded text-sm
+                    <?= $row['status'] == 'Selesai'
+                        ? 'bg-green-100 text-green-700'
+                        : ($row['status'] == 'Proses'
+                            ? 'bg-yellow-100 text-yellow-700'
+                            : ($row['status'] == 'Cancel'
+                                ? 'bg-red-100 text-red-700'
+                                : 'bg-gray-100 text-gray-700')) ?>">
+                    <?= $row['status'] ?>
+                </span>
             </td>
             <td class="py-3 px-4 text-center">
-              <a href="edit_kunjungan.php?id=<?= $row['id_kunjungan'] ?>" 
+              <a href="edit_kunjungan.php?id_kunjungan=<?= $row['id_kunjungan'] ?>" 
                  class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm">Edit</a>
-              <a href="hapus_kunjungan.php?id=<?= $row['id_kunjungan'] ?>" 
+              <a href="hapus_kunjungan.php?id_kunjungan=<?= $row['id_kunjungan'] ?>" 
                  onclick="return confirm('Yakin hapus data kunjungan ini?')" 
                  class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">Hapus</a>
             </td>
